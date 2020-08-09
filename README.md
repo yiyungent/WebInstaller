@@ -1,3 +1,7 @@
+<!--
+ * @Author: yiyun
+ * @Description: 
+-->
 <p align="center">
 <!-- <img src="docs/_images/logo.png" alt="WebInstaller"> -->
 </p>
@@ -13,7 +17,7 @@
 
 ## 介绍
 
-轻松在 Vue.js 下使用点触验证码
+:zap: 让部署 ASP.NET Core 应用一步到位。
  + **简单** - 简单易用.
  + **免费** - MIT协议 发布
 
