@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebInstaller"
+        xmlns:mdixWindow="clr-namespace:WebInstaller"
+        xmlns:mdix="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        mdixWindow:WindowEx.ShowMinimizeButton="True"
+        mdixWindow:WindowEx.ShowMaximizeButton="True"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
 
-    </Grid>
+    <mdixWindow:MaterialDesignWindow.HeaderContent>
+        <Grid>
+            <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" HorizontalAlignment="Left" WindowChrome.IsHitTestVisibleInChrome="True" 
+                          x:Name="MenuToggleButton" />
+            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" HorizontalAlignment="Center" />
+        </Grid>
+    </mdixWindow:MaterialDesignWindow.HeaderContent>
+    <Window.Content>
+        <mdix:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}">
+            <mdix:DrawerHost.LeftDrawerContent>
+                <TextBlock Width="250" TextWrapping="Wrap" Text="Some left drawer content here. Perhaps navigation options?" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+            </mdix:DrawerHost.LeftDrawerContent>
+            <Grid>
+                <TextBlock Text="Normal Window Content Goes Here" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Grid>
+        </mdix:DrawerHost>
+    </Window.Content>
 </Window>
