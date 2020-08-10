@@ -13,4 +13,8 @@
     <PackageReference Include="Panuon.UI.Silver" Version="2.1.1.1-beta" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\WebInstaller.Core\WebInstaller.Core.csproj" />
+  </ItemGroup>
+
 </Project>
